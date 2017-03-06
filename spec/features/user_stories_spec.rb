@@ -23,6 +23,14 @@ describe "User stories" do
     expect {bankAccount.deposit(100, "14/01/2012")}.not_to raise_error
   end
 
+  # As a user
+  # So that I can pay for my groceries
+  # I'd like to withdraw some cash from my account
+  it "so a user can purchase goods, withdraw some cash on a certain date" do
+    bankAccount = BankAccount.new
+    bankAccount.deposit(100, "14/01/2012")
+    expect {bankAccount.withdraw(10, "15/01/2012")}.not_to raise_error
+  end
 
 
 end
