@@ -5,7 +5,7 @@ Brief description of what the project is, what it does
 ## Getting started
 
 - `git clone https://github.com/shezdev/bank_tech_test.git`
-- Run `bundle` to install dependencies
+- Run `bundle` to install ruby `gemfile` dependencies
 
 ## Usage
 [(1) How to install it (what to clone, what to run to get all dependencies)]
