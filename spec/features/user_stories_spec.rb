@@ -7,4 +7,11 @@ describe "User stories" do
    expect { bankAccount }.not_to raise_error
  end
 
+ # As a user
+ # So that I know how much I can spend this month
+ # I'd like to see my account balance
+ it "so a user can check how much money they have, view the account balance" do
+   bankAccount = BankAccount.new
+   expect {bankAccount.balance}.not_to raise_error
+ end
 end
