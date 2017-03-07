@@ -12,9 +12,9 @@ describe BankAccount do
       expect(subject.balance).to eq(0)
     end
 
-    # it "has a default transaction history" do
-    #   expect(subject.transaction_history).to eq("")
-    # end
+    it "starts with an empty transaction log object" do
+      expect(subject.transactions).to be_a Object
+    end
   end
 
   describe "#deposit" do
