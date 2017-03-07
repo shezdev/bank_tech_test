@@ -1,3 +1,4 @@
+require_relative 'transaction'
 require_relative 'transactionLog'
 require_relative 'statementPrinter'
 
@@ -11,15 +12,15 @@ class BankAccount
 
   def deposit(amount, date)
     add_balance(amount)
-    transaction = {date: date, credit: amount, debit: 0, balance: @balance}
-    update_log(transaction)
+    details = { date: date, credit: amount, debit: 0, balance: @balance }
+    update_log(Transaction.new(details))
   end
 
   def withdraw(amount, date)
     raise insufficient_funds_msg if @balance == 0
-    minus_balance(amount)
-    transaction = {date: date, credit: 0, debit: amount, balance: @balance}
-    update_log(transaction)
+      minus_balance(amount)
+      details = { date: date, credit: 0, debit: amount, balance: @balance }
+      update_log(Transaction.new(details))
   end
 
   def getStatement

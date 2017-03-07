@@ -8,7 +8,7 @@ functionality developed using TDD and using OO principles:
 Enter the following commands in your terminal to download the program:
 - `git clone https://github.com/shezdev/bank_tech_test.git`
 - cd into the bank_tech_test directory
-- Run `bundle` to install ruby `gemfile` dependencies
+- Please run `bundle` to install the necessary ruby `gemfile` dependencies
 
 ## Usage
 - Type the command `pry` in your terminal to run the example tests provided in .pryrc
