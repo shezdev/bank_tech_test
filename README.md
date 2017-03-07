@@ -14,21 +14,28 @@ Enter the following commands in your terminal to download the program:
 - Type the command `pry` in your terminal to run the example tests provided in .pryrc
 - Alternatively, open `irb` and enter the following commands:
 
-`bc = BankAccount.new`
+```
+> bc = BankAccount.new
+
  => #<BankAccount:0x007fac528b0f78 @balance=0, @log=#<TransactionLog:0x007fac528b0f50 @transactions=[]>>
-
-`bc.deposit("01/01/2012", 100)`
+```
+```
+> bc.deposit("01/01/2012", 100)
  => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}]
+```
 
-`bc.withdraw("02/01/2012", 10)`
+```
+> bc.withdraw("02/01/2012", 10)
  => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}, {:date=>"02/01/2012", :credit=>0, :debit=>10, :balance=>90}]
+```
 
-`bc.getStatement`
-
+```
+> bc.getStatement
  date      | credit | debit | balance
 --------------------------------------
 01/01/2012 |   100   |  0  |  100
 02/01/2012 |   0   |  10  |  90
+```
 
 NOTE: The following commands will cause the program to exit with the message:
 "Withdrawal denied: insufficient funds"
@@ -39,6 +46,7 @@ NOTE: The following commands will cause the program to exit with the message:
 
 Use the command `rspec`to run tests
 
+![RSpec tests](rspec.png)
 
 ## Specification
 
