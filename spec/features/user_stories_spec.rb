@@ -32,6 +32,15 @@ describe "User stories" do
     expect {bankAccount.withdraw(10, "15/01/2012")}.not_to raise_error
   end
 
+  # As a user
+  # So that I can see what I've saved and spent this month
+  # I'd like to see my bank account statement with dates for each transaction
+  it "so a user can see their transaction history, get the bank account statement" do
+    bankAccount = BankAccount.new
+    bankAccount.deposit(100, "14/01/2012")
+    bankAccount.withdraw(10, "15/01/2012")
+    expect {bankAccount.getStatement()}.not_to raise_error
+  end
 
 
 end

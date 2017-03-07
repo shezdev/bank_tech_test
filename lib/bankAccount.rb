@@ -1,11 +1,12 @@
 require_relative 'transactionLog'
+require_relative 'statementPrinter'
 
 class BankAccount
-  attr_reader :balance, :transactions
+  attr_reader :balance, :log
 
   def initialize
     @balance = 0
-    @transactions = TransactionLog.new
+    @log = TransactionLog.new
   end
 
   def deposit(amount, date)
@@ -21,6 +22,10 @@ class BankAccount
     update_log(transaction)
   end
 
+  def getStatement
+    statement = StatementPrinter.new(@log.getTransactions).print
+  end
+
 private
 
 def insufficient_funds_msg
@@ -32,12 +37,11 @@ def add_balance(amount)
 end
 
 def minus_balance(amount)
-  # add guard clause
   @balance -= amount
 end
 
 def update_log(transaction)
-  @transactions.record(transaction)
+  @log.record(transaction)
 end
 
 end

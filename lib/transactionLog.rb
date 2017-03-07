@@ -9,4 +9,8 @@ attr_reader :transactions
     @transactions << txn
   end
 
+  def getTransactions
+    @transactions
+  end
+
 end

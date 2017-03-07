@@ -1,23 +1,43 @@
 # Bank practice tech test
 
-Brief description of what the project is, what it does
+This is a ruby program that can be run in irb or pry, which has the following
+functionality developed using TDD and using OO principles:
+(See Specification below for more details).
 
 ## Getting started
-
+Enter the following commands in your terminal to download the program:
 - `git clone https://github.com/shezdev/bank_tech_test.git`
+- cd into the bank_tech_test directory
 - Run `bundle` to install ruby `gemfile` dependencies
 
 ## Usage
-[(1) How to install it (what to clone, what to run to get all dependencies)]
+- Type the command `pry` in your terminal to run the example tests provided in .pryrc
+- Alternatively, open `irb` and enter the following commands:
 
-`command_to_start` (e.g. `rackup` or `rails s`)
-Navigate to `http://localhost:4567/`
+`bc = BankAccount.new`
+ => #<BankAccount:0x007fac528b0f78 @balance=0, @log=#<TransactionLog:0x007fac528b0f50 @transactions=[]>>
 
-[(2) How to run it (is it a command line tool? Do you have to load it into IRB? Is is a web application? What port needs to be used?)]
+`bc.deposit("01/01/2012", 100)`
+ => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}]
+
+`bc.withdraw("02/01/2012", 10)`
+ => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}, {:date=>"02/01/2012", :credit=>0, :debit=>10, :balance=>90}]
+
+`bc.getStatement`
+
+ date      | credit | debit | balance
+--------------------------------------
+01/01/2012 |   100   |  0  |  100
+02/01/2012 |   0   |  10  |  90
+
+NOTE: The following commands will cause the program to exit with the message:
+"Withdrawal denied: insufficient funds"
+`bc = BankAccount.new`
+`bc.withdraw("02/01/2012", 10)`
 
 ## Running tests
 
-`test_command` (e.g. `rspec`)
+Use the command `rspec`to run tests
 
 
 ## Specification

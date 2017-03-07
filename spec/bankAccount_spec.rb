@@ -13,7 +13,7 @@ describe BankAccount do
     end
 
     it "starts with an empty transaction log object" do
-      expect(subject.transactions).to be_a Object
+      expect(subject.log).to be_a Object
     end
   end
 
@@ -44,6 +44,18 @@ describe BankAccount do
       end
     end
   end
+
+  describe "#getStatement" do
+    context "when invoked" do
+      it "prints the date, credit, debit and balance" do
+        subject.deposit(100, "14/01/2012")
+        subject.withdraw(10, "15/01/2012")
+        expect(subject.getStatement).to be_a Array
+      end
+    end
+  end
+
+
 
 
 end
